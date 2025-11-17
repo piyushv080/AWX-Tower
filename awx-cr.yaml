@@ -1,0 +1,78 @@
+apiVersion: awx.ansible.com/v1beta1
+kind: AWX
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"awx.ansible.com/v1beta1","kind":"AWX","metadata":{"annotations":{},"name":"awx","namespace":"awx"},"spec":{"admin_password_secret":"awx-admin-password","admin_user":"admin","ee_resource_requirements":{},"hostname":"awx.demo.netapp.com","ingress_tls_secret":"awx-secret-tls","ingress_type":"ingress","init_container_resource_requirements":{},"postgres_configuration_secret":"awx-postgres-configuration","postgres_init_container_resource_requirements":{},"postgres_resource_requirements":{},"postgres_storage_class":"awx-postgres-volume","postgres_storage_requirements":{"requests":{"storage":"8Gi"}},"projects_existing_claim":"awx-projects-claim","projects_persistence":true,"task_replicas":1,"task_resource_requirements":{},"web_replicas":1,"web_resource_requirements":{}}}
+  creationTimestamp: "2023-10-12T01:49:19Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/component: awx
+    app.kubernetes.io/managed-by: awx-operator
+    app.kubernetes.io/operator-version: 2.7.0
+    app.kubernetes.io/part-of: awx
+  name: awx
+  namespace: awx
+  resourceVersion: "26089"
+  uid: 961a4497-1dc2-4c5c-9c62-a80ecf39f8e0
+spec:
+  admin_password_secret: awx-admin-password
+  admin_user: admin
+  auto_upgrade: true
+  create_preload_data: true
+  ee_resource_requirements: {}
+  garbage_collect_secrets: false
+  hostname: awx.demo.netapp.com
+  image_pull_policy: IfNotPresent
+  ingress_tls_secret: awx-secret-tls
+  ingress_type: ingress
+  init_container_resource_requirements: {}
+  ipv6_disabled: false
+  loadbalancer_ip: ""
+  loadbalancer_port: 80
+  loadbalancer_protocol: http
+  no_log: true
+  postgres_configuration_secret: awx-postgres-configuration
+  postgres_init_container_resource_requirements: {}
+  postgres_keepalives: true
+  postgres_keepalives_count: 5
+  postgres_keepalives_idle: 5
+  postgres_keepalives_interval: 5
+  postgres_resource_requirements: {}
+  postgres_storage_class: awx-postgres-volume
+  postgres_storage_requirements:
+    requests:
+      storage: 8Gi
+  projects_existing_claim: awx-projects-claim
+  projects_persistence: true
+  projects_storage_access_mode: ReadWriteMany
+  projects_storage_size: 8Gi
+  replicas: 1
+  route_tls_termination_mechanism: Edge
+  set_self_labels: true
+  task_privileged: false
+  task_replicas: 1
+  task_resource_requirements: {}
+  web_replicas: 1
+  web_resource_requirements: {}
+status:
+  adminPasswordSecret: awx-admin-password
+  adminUser: admin
+  broadcastWebsocketSecret: awx-broadcast-websocket
+  conditions:
+  - lastTransitionTime: "2023-10-12T01:56:09Z"
+    reason: ""
+    status: "False"
+    type: Failure
+  - lastTransitionTime: "2023-10-12T01:49:19Z"
+    reason: Successful
+    status: "True"
+    type: Running
+  - lastTransitionTime: "2025-11-15T21:39:09Z"
+    reason: Successful
+    status: "True"
+    type: Successful
+  image: quay.io/ansible/awx:23.3.0
+  postgresConfigurationSecret: awx-postgres-configuration
+  secretKeySecret: awx-secret-key
+  version: 23.3.0

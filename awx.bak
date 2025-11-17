@@ -1,0 +1,1271 @@
+{
+     "users": [
+          {
+               "username": "admin",
+               "first_name": "",
+               "last_name": "",
+               "email": "test@example.com",
+               "is_superuser": true,
+               "is_system_auditor": false,
+               "password": "Netapp1!",
+               "related": {
+                    "roles": [
+                         {
+                              "name": "Admin",
+                              "type": "role",
+                              "content_object": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Create Export Policy",
+                                   "type": "job_template"
+                              }
+                         },
+                         {
+                              "name": "Admin",
+                              "type": "role",
+                              "content_object": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Export Policy Rules",
+                                   "type": "job_template"
+                              }
+                         },
+                         {
+                              "name": "Admin",
+                              "type": "role",
+                              "content_object": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Create Volume",
+                                   "type": "job_template"
+                              }
+                         },
+                         {
+                              "name": "Admin",
+                              "type": "role",
+                              "content_object": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Create CIFS Share",
+                                   "type": "job_template"
+                              }
+                         },
+                         {
+                              "name": "Admin",
+                              "type": "role",
+                              "content_object": {
+                                   "organization": null,
+                                   "name": "Ansible",
+                                   "credential_type": {
+                                        "name": "Machine",
+                                        "kind": "ssh",
+                                        "type": "credential_type"
+                                   },
+                                   "type": "credential"
+                              }
+                         },
+                         {
+                              "name": "Admin",
+                              "type": "role",
+                              "content_object": {
+                                   "organization": null,
+                                   "name": "ONTAP Credentials",
+                                   "credential_type": {
+                                        "name": "ONTAP",
+                                        "kind": "cloud",
+                                        "type": "credential_type"
+                                   },
+                                   "type": "credential"
+                              }
+                         },
+                         {
+                              "name": "System Administrator",
+                              "type": "role"
+                         }
+                    ]
+               },
+               "natural_key": {
+                    "username": "admin",
+                    "type": "user"
+               }
+          }
+     ],
+     "organizations": [
+          {
+               "name": "Default",
+               "description": "",
+               "max_hosts": 0,
+               "default_environment": null,
+               "related": {
+                    "execution_environments": [],
+                    "notification_templates": [],
+                    "notification_templates_started": [],
+                    "notification_templates_success": [],
+                    "notification_templates_error": [],
+                    "notification_templates_approvals": [],
+                    "galaxy_credentials": [
+                         {
+                              "organization": null,
+                              "name": "Ansible Galaxy",
+                              "credential_type": {
+                                   "name": "Ansible Galaxy/Automation Hub API Token",
+                                   "kind": "galaxy",
+                                   "type": "credential_type"
+                              },
+                              "type": "credential"
+                         }
+                    ]
+               },
+               "natural_key": {
+                    "name": "Default",
+                    "type": "organization"
+               }
+          }
+     ],
+     "teams": [],
+     "credential_types": [
+          {
+               "name": "ONTAP",
+               "description": "",
+               "kind": "cloud",
+               "inputs": {
+                    "fields": [
+                         {
+                              "id": "username",
+                              "type": "string",
+                              "label": "Username"
+                         },
+                         {
+                              "id": "password",
+                              "type": "string",
+                              "label": "Password",
+                              "secret": true
+                         }
+                    ]
+               },
+               "injectors": {
+                    "extra_vars": {
+                         "netapp_password": "{{ password }}",
+                         "netapp_username": "{{ username }}"
+                    }
+               },
+               "natural_key": {
+                    "name": "ONTAP",
+                    "kind": "cloud",
+                    "type": "credential_type"
+               }
+          }
+     ],
+     "credentials": [
+          {
+               "name": "Ansible",
+               "description": "",
+               "organization": null,
+               "inputs": {
+                    "password": "Netapp1!",
+                    "username": "ansible",
+                    "become_method": "sudo",
+                    "become_username": ""
+               },
+               "credential_type": {
+                    "name": "Machine",
+                    "kind": "ssh",
+                    "type": "credential_type"
+               },
+               "user": {
+                    "username": "admin",
+                    "type": "user"
+               },
+               "natural_key": {
+                    "organization": null,
+                    "name": "Ansible",
+                    "credential_type": {
+                         "name": "Machine",
+                         "kind": "ssh",
+                         "type": "credential_type"
+                    },
+                    "type": "credential"
+               }
+          },
+          {
+               "name": "ONTAP Credentials",
+               "description": "",
+               "organization": null,
+               "inputs": {
+                    "password": "Netapp1!",
+                    "username": "admin"
+               },
+               "credential_type": {
+                    "name": "ONTAP",
+                    "kind": "cloud",
+                    "type": "credential_type"
+               },
+               "user": {
+                    "username": "admin",
+                    "type": "user"
+               },
+               "natural_key": {
+                    "organization": null,
+                    "name": "ONTAP Credentials",
+                    "credential_type": {
+                         "name": "ONTAP",
+                         "kind": "cloud",
+                         "type": "credential_type"
+                    },
+                    "type": "credential"
+               }
+          }
+     ],
+     "notification_templates": [],
+     "projects": [
+          {
+               "name": "ONTAP Automation",
+               "description": "",
+               "local_path": "ontap",
+               "scm_type": "",
+               "scm_url": "",
+               "scm_branch": "",
+               "scm_refspec": "",
+               "scm_clean": false,
+               "scm_track_submodules": false,
+               "scm_delete_on_update": false,
+               "credential": null,
+               "timeout": 0,
+               "scm_update_on_launch": false,
+               "scm_update_cache_timeout": 0,
+               "allow_override": false,
+               "signature_validation_credential": null,
+               "organization": {
+                    "name": "Default",
+                    "type": "organization"
+               },
+               "default_environment": {
+                    "name": "NetApp EE",
+                    "type": "execution_environment"
+               },
+               "related": {
+                    "notification_templates_started": [],
+                    "notification_templates_success": [],
+                    "notification_templates_error": []
+               },
+               "natural_key": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "ONTAP Automation",
+                    "type": "project"
+               }
+          }
+     ],
+     "inventory": [
+          {
+               "name": "Demo Inventory",
+               "description": "",
+               "kind": "",
+               "host_filter": null,
+               "variables": "",
+               "prevent_instance_group_fallback": false,
+               "organization": {
+                    "name": "Default",
+                    "type": "organization"
+               },
+               "related": {
+                    "hosts": [
+                         {
+                              "name": "ansible",
+                              "description": "",
+                              "enabled": true,
+                              "instance_id": "",
+                              "variables": "---\nansible_host: 192.168.0.188",
+                              "inventory": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Demo Inventory",
+                                   "type": "inventory"
+                              },
+                              "related": {
+                                   "groups": []
+                              },
+                              "natural_key": {
+                                   "name": "ansible",
+                                   "inventory": {
+                                        "organization": {
+                                             "name": "Default",
+                                             "type": "organization"
+                                        },
+                                        "name": "Demo Inventory",
+                                        "type": "inventory"
+                                   },
+                                   "type": "host"
+                              }
+                         },
+                         {
+                              "name": "localhost",
+                              "description": "",
+                              "enabled": true,
+                              "instance_id": "",
+                              "variables": "ansible_connection: local\nansible_python_interpreter: '{{ ansible_playbook_python }}'",
+                              "inventory": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Demo Inventory",
+                                   "type": "inventory"
+                              },
+                              "related": {
+                                   "groups": []
+                              },
+                              "natural_key": {
+                                   "name": "localhost",
+                                   "inventory": {
+                                        "organization": {
+                                             "name": "Default",
+                                             "type": "organization"
+                                        },
+                                        "name": "Demo Inventory",
+                                        "type": "inventory"
+                                   },
+                                   "type": "host"
+                              }
+                         },
+                         {
+                              "name": "ubuntu",
+                              "description": "",
+                              "enabled": true,
+                              "instance_id": "",
+                              "variables": "---\nansible_host: 192.168.0.61",
+                              "inventory": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Demo Inventory",
+                                   "type": "inventory"
+                              },
+                              "related": {
+                                   "groups": []
+                              },
+                              "natural_key": {
+                                   "name": "ubuntu",
+                                   "inventory": {
+                                        "organization": {
+                                             "name": "Default",
+                                             "type": "organization"
+                                        },
+                                        "name": "Demo Inventory",
+                                        "type": "inventory"
+                                   },
+                                   "type": "host"
+                              }
+                         }
+                    ],
+                    "labels": [],
+                    "groups": []
+               },
+               "natural_key": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "Demo Inventory",
+                    "type": "inventory"
+               }
+          }
+     ],
+     "inventory_sources": [],
+     "job_templates": [
+          {
+               "name": "Create CIFS Share",
+               "description": "",
+               "job_type": "run",
+               "playbook": "cifs.yml",
+               "scm_branch": "",
+               "forks": 0,
+               "limit": "",
+               "verbosity": 0,
+               "extra_vars": "---",
+               "job_tags": "",
+               "force_handlers": false,
+               "skip_tags": "",
+               "start_at_task": "",
+               "timeout": 0,
+               "use_fact_cache": false,
+               "host_config_key": "",
+               "ask_scm_branch_on_launch": false,
+               "ask_diff_mode_on_launch": false,
+               "ask_variables_on_launch": false,
+               "ask_limit_on_launch": false,
+               "ask_tags_on_launch": false,
+               "ask_skip_tags_on_launch": false,
+               "ask_job_type_on_launch": false,
+               "ask_verbosity_on_launch": false,
+               "ask_inventory_on_launch": false,
+               "ask_credential_on_launch": false,
+               "ask_execution_environment_on_launch": false,
+               "ask_labels_on_launch": false,
+               "ask_forks_on_launch": false,
+               "ask_job_slice_count_on_launch": false,
+               "ask_timeout_on_launch": false,
+               "ask_instance_groups_on_launch": false,
+               "survey_enabled": false,
+               "become_enabled": false,
+               "diff_mode": false,
+               "allow_simultaneous": false,
+               "job_slice_count": 1,
+               "webhook_service": "",
+               "webhook_credential": null,
+               "prevent_instance_group_fallback": false,
+               "inventory": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "Demo Inventory",
+                    "type": "inventory"
+               },
+               "project": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "ONTAP Automation",
+                    "type": "project"
+               },
+               "execution_environment": {
+                    "name": "NetApp EE",
+                    "type": "execution_environment"
+               },
+               "related": {
+                    "labels": [],
+                    "credentials": [
+                         {
+                              "organization": null,
+                              "name": "ONTAP Credentials",
+                              "credential_type": {
+                                   "name": "ONTAP",
+                                   "kind": "cloud",
+                                   "type": "credential_type"
+                              },
+                              "type": "credential"
+                         }
+                    ],
+                    "schedules": [],
+                    "notification_templates_started": [],
+                    "notification_templates_success": [],
+                    "notification_templates_error": [],
+                    "survey_spec": {}
+               },
+               "natural_key": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "Create CIFS Share",
+                    "type": "job_template"
+               }
+          },
+          {
+               "name": "Create Export Policy",
+               "description": "",
+               "job_type": "run",
+               "playbook": "policy.yml",
+               "scm_branch": "",
+               "forks": 0,
+               "limit": "",
+               "verbosity": 0,
+               "extra_vars": "---",
+               "job_tags": "",
+               "force_handlers": false,
+               "skip_tags": "",
+               "start_at_task": "",
+               "timeout": 0,
+               "use_fact_cache": false,
+               "host_config_key": "",
+               "ask_scm_branch_on_launch": false,
+               "ask_diff_mode_on_launch": false,
+               "ask_variables_on_launch": false,
+               "ask_limit_on_launch": false,
+               "ask_tags_on_launch": false,
+               "ask_skip_tags_on_launch": false,
+               "ask_job_type_on_launch": false,
+               "ask_verbosity_on_launch": false,
+               "ask_inventory_on_launch": false,
+               "ask_credential_on_launch": false,
+               "ask_execution_environment_on_launch": false,
+               "ask_labels_on_launch": false,
+               "ask_forks_on_launch": false,
+               "ask_job_slice_count_on_launch": false,
+               "ask_timeout_on_launch": false,
+               "ask_instance_groups_on_launch": false,
+               "survey_enabled": false,
+               "become_enabled": false,
+               "diff_mode": false,
+               "allow_simultaneous": false,
+               "job_slice_count": 1,
+               "webhook_service": "",
+               "webhook_credential": null,
+               "prevent_instance_group_fallback": false,
+               "inventory": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "Demo Inventory",
+                    "type": "inventory"
+               },
+               "project": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "ONTAP Automation",
+                    "type": "project"
+               },
+               "execution_environment": {
+                    "name": "NetApp EE",
+                    "type": "execution_environment"
+               },
+               "related": {
+                    "labels": [],
+                    "credentials": [
+                         {
+                              "organization": null,
+                              "name": "ONTAP Credentials",
+                              "credential_type": {
+                                   "name": "ONTAP",
+                                   "kind": "cloud",
+                                   "type": "credential_type"
+                              },
+                              "type": "credential"
+                         }
+                    ],
+                    "schedules": [],
+                    "notification_templates_started": [],
+                    "notification_templates_success": [],
+                    "notification_templates_error": [],
+                    "survey_spec": {}
+               },
+               "natural_key": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "Create Export Policy",
+                    "type": "job_template"
+               }
+          },
+          {
+               "name": "Create Volume",
+               "description": "",
+               "job_type": "run",
+               "playbook": "volume.yml",
+               "scm_branch": "",
+               "forks": 0,
+               "limit": "",
+               "verbosity": 0,
+               "extra_vars": "---",
+               "job_tags": "",
+               "force_handlers": false,
+               "skip_tags": "",
+               "start_at_task": "",
+               "timeout": 0,
+               "use_fact_cache": false,
+               "host_config_key": "",
+               "ask_scm_branch_on_launch": false,
+               "ask_diff_mode_on_launch": false,
+               "ask_variables_on_launch": false,
+               "ask_limit_on_launch": false,
+               "ask_tags_on_launch": false,
+               "ask_skip_tags_on_launch": false,
+               "ask_job_type_on_launch": false,
+               "ask_verbosity_on_launch": false,
+               "ask_inventory_on_launch": false,
+               "ask_credential_on_launch": false,
+               "ask_execution_environment_on_launch": false,
+               "ask_labels_on_launch": false,
+               "ask_forks_on_launch": false,
+               "ask_job_slice_count_on_launch": false,
+               "ask_timeout_on_launch": false,
+               "ask_instance_groups_on_launch": false,
+               "survey_enabled": false,
+               "become_enabled": false,
+               "diff_mode": false,
+               "allow_simultaneous": false,
+               "job_slice_count": 1,
+               "webhook_service": "",
+               "webhook_credential": null,
+               "prevent_instance_group_fallback": false,
+               "inventory": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "Demo Inventory",
+                    "type": "inventory"
+               },
+               "project": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "ONTAP Automation",
+                    "type": "project"
+               },
+               "execution_environment": {
+                    "name": "NetApp EE",
+                    "type": "execution_environment"
+               },
+               "related": {
+                    "labels": [],
+                    "credentials": [
+                         {
+                              "organization": null,
+                              "name": "ONTAP Credentials",
+                              "credential_type": {
+                                   "name": "ONTAP",
+                                   "kind": "cloud",
+                                   "type": "credential_type"
+                              },
+                              "type": "credential"
+                         }
+                    ],
+                    "schedules": [],
+                    "notification_templates_started": [],
+                    "notification_templates_success": [],
+                    "notification_templates_error": [],
+                    "survey_spec": {}
+               },
+               "natural_key": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "Create Volume",
+                    "type": "job_template"
+               }
+          },
+          {
+               "name": "Export Policy Rules",
+               "description": "",
+               "job_type": "run",
+               "playbook": "rule.yml",
+               "scm_branch": "",
+               "forks": 0,
+               "limit": "",
+               "verbosity": 0,
+               "extra_vars": "---",
+               "job_tags": "",
+               "force_handlers": false,
+               "skip_tags": "",
+               "start_at_task": "",
+               "timeout": 0,
+               "use_fact_cache": false,
+               "host_config_key": "",
+               "ask_scm_branch_on_launch": false,
+               "ask_diff_mode_on_launch": false,
+               "ask_variables_on_launch": false,
+               "ask_limit_on_launch": false,
+               "ask_tags_on_launch": false,
+               "ask_skip_tags_on_launch": false,
+               "ask_job_type_on_launch": false,
+               "ask_verbosity_on_launch": false,
+               "ask_inventory_on_launch": false,
+               "ask_credential_on_launch": false,
+               "ask_execution_environment_on_launch": false,
+               "ask_labels_on_launch": false,
+               "ask_forks_on_launch": false,
+               "ask_job_slice_count_on_launch": false,
+               "ask_timeout_on_launch": false,
+               "ask_instance_groups_on_launch": false,
+               "survey_enabled": false,
+               "become_enabled": false,
+               "diff_mode": false,
+               "allow_simultaneous": false,
+               "job_slice_count": 1,
+               "webhook_service": "",
+               "webhook_credential": null,
+               "prevent_instance_group_fallback": false,
+               "inventory": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "Demo Inventory",
+                    "type": "inventory"
+               },
+               "project": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "ONTAP Automation",
+                    "type": "project"
+               },
+               "execution_environment": {
+                    "name": "NetApp EE",
+                    "type": "execution_environment"
+               },
+               "related": {
+                    "labels": [],
+                    "credentials": [
+                         {
+                              "organization": null,
+                              "name": "ONTAP Credentials",
+                              "credential_type": {
+                                   "name": "ONTAP",
+                                   "kind": "cloud",
+                                   "type": "credential_type"
+                              },
+                              "type": "credential"
+                         }
+                    ],
+                    "schedules": [],
+                    "notification_templates_started": [],
+                    "notification_templates_success": [],
+                    "notification_templates_error": [],
+                    "survey_spec": {}
+               },
+               "natural_key": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "Export Policy Rules",
+                    "type": "job_template"
+               }
+          }
+     ],
+     "workflow_job_templates": [
+          {
+               "name": "Provision NAS",
+               "description": "",
+               "extra_vars": "---\nhostname: 192.168.0.101\nvserver: svm1_cluster1\naggr_name: cluster1_01_SSD_1\nro_rule: sys\nrw_rule: sys\nsu_rule: sys",
+               "survey_enabled": true,
+               "allow_simultaneous": false,
+               "ask_variables_on_launch": false,
+               "limit": null,
+               "scm_branch": null,
+               "ask_inventory_on_launch": false,
+               "ask_scm_branch_on_launch": false,
+               "ask_limit_on_launch": false,
+               "webhook_service": "",
+               "webhook_credential": null,
+               "ask_labels_on_launch": false,
+               "ask_skip_tags_on_launch": false,
+               "ask_tags_on_launch": false,
+               "skip_tags": null,
+               "job_tags": null,
+               "organization": {
+                    "name": "Default",
+                    "type": "organization"
+               },
+               "inventory": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "Demo Inventory",
+                    "type": "inventory"
+               },
+               "related": {
+                    "schedules": [],
+                    "workflow_nodes": [
+                         {
+                              "extra_data": {},
+                              "inventory": null,
+                              "scm_branch": null,
+                              "job_type": null,
+                              "job_tags": null,
+                              "skip_tags": null,
+                              "limit": null,
+                              "diff_mode": null,
+                              "verbosity": null,
+                              "execution_environment": null,
+                              "forks": null,
+                              "job_slice_count": null,
+                              "timeout": null,
+                              "all_parents_must_converge": false,
+                              "identifier": "1ba65482-4641-49af-8c05-8e30848e16e3",
+                              "workflow_job_template": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Provision NAS",
+                                   "type": "workflow_job_template"
+                              },
+                              "unified_job_template": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Export Policy Rules",
+                                   "type": "job_template"
+                              },
+                              "related": {
+                                   "credentials": [],
+                                   "success_nodes": [
+                                        {
+                                             "workflow_job_template": {
+                                                  "organization": {
+                                                       "name": "Default",
+                                                       "type": "organization"
+                                                  },
+                                                  "name": "Provision NAS",
+                                                  "type": "workflow_job_template"
+                                             },
+                                             "identifier": "159c7b88-951c-4a1c-9b53-8fced181ea5f",
+                                             "type": "workflow_job_template_node"
+                                        }
+                                   ],
+                                   "failure_nodes": [],
+                                   "always_nodes": []
+                              },
+                              "natural_key": {
+                                   "workflow_job_template": {
+                                        "organization": {
+                                             "name": "Default",
+                                             "type": "organization"
+                                        },
+                                        "name": "Provision NAS",
+                                        "type": "workflow_job_template"
+                                   },
+                                   "identifier": "1ba65482-4641-49af-8c05-8e30848e16e3",
+                                   "type": "workflow_job_template_node"
+                              }
+                         },
+                         {
+                              "extra_data": {},
+                              "inventory": null,
+                              "scm_branch": null,
+                              "job_type": null,
+                              "job_tags": null,
+                              "skip_tags": null,
+                              "limit": null,
+                              "diff_mode": null,
+                              "verbosity": null,
+                              "execution_environment": null,
+                              "forks": null,
+                              "job_slice_count": null,
+                              "timeout": null,
+                              "all_parents_must_converge": false,
+                              "identifier": "ce017904-656d-4fbe-a2a8-be104c059b0e",
+                              "workflow_job_template": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Provision NAS",
+                                   "type": "workflow_job_template"
+                              },
+                              "unified_job_template": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Create Export Policy",
+                                   "type": "job_template"
+                              },
+                              "related": {
+                                   "credentials": [],
+                                   "success_nodes": [
+                                        {
+                                             "workflow_job_template": {
+                                                  "organization": {
+                                                       "name": "Default",
+                                                       "type": "organization"
+                                                  },
+                                                  "name": "Provision NAS",
+                                                  "type": "workflow_job_template"
+                                             },
+                                             "identifier": "1ba65482-4641-49af-8c05-8e30848e16e3",
+                                             "type": "workflow_job_template_node"
+                                        }
+                                   ],
+                                   "failure_nodes": [],
+                                   "always_nodes": []
+                              },
+                              "natural_key": {
+                                   "workflow_job_template": {
+                                        "organization": {
+                                             "name": "Default",
+                                             "type": "organization"
+                                        },
+                                        "name": "Provision NAS",
+                                        "type": "workflow_job_template"
+                                   },
+                                   "identifier": "ce017904-656d-4fbe-a2a8-be104c059b0e",
+                                   "type": "workflow_job_template_node"
+                              }
+                         },
+                         {
+                              "extra_data": {},
+                              "inventory": null,
+                              "scm_branch": null,
+                              "job_type": null,
+                              "job_tags": null,
+                              "skip_tags": null,
+                              "limit": null,
+                              "diff_mode": null,
+                              "verbosity": null,
+                              "execution_environment": null,
+                              "forks": null,
+                              "job_slice_count": null,
+                              "timeout": null,
+                              "all_parents_must_converge": false,
+                              "identifier": "159c7b88-951c-4a1c-9b53-8fced181ea5f",
+                              "workflow_job_template": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Provision NAS",
+                                   "type": "workflow_job_template"
+                              },
+                              "unified_job_template": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Create Volume",
+                                   "type": "job_template"
+                              },
+                              "related": {
+                                   "credentials": [],
+                                   "success_nodes": [
+                                        {
+                                             "workflow_job_template": {
+                                                  "organization": {
+                                                       "name": "Default",
+                                                       "type": "organization"
+                                                  },
+                                                  "name": "Provision NAS",
+                                                  "type": "workflow_job_template"
+                                             },
+                                             "identifier": "e49fe296-1dd8-474a-b9f0-acac2635ed3f",
+                                             "type": "workflow_job_template_node"
+                                        }
+                                   ],
+                                   "failure_nodes": [],
+                                   "always_nodes": []
+                              },
+                              "natural_key": {
+                                   "workflow_job_template": {
+                                        "organization": {
+                                             "name": "Default",
+                                             "type": "organization"
+                                        },
+                                        "name": "Provision NAS",
+                                        "type": "workflow_job_template"
+                                   },
+                                   "identifier": "159c7b88-951c-4a1c-9b53-8fced181ea5f",
+                                   "type": "workflow_job_template_node"
+                              }
+                         },
+                         {
+                              "extra_data": {},
+                              "inventory": null,
+                              "scm_branch": null,
+                              "job_type": null,
+                              "job_tags": null,
+                              "skip_tags": null,
+                              "limit": null,
+                              "diff_mode": null,
+                              "verbosity": null,
+                              "execution_environment": null,
+                              "forks": null,
+                              "job_slice_count": null,
+                              "timeout": null,
+                              "all_parents_must_converge": false,
+                              "identifier": "e49fe296-1dd8-474a-b9f0-acac2635ed3f",
+                              "workflow_job_template": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Provision NAS",
+                                   "type": "workflow_job_template"
+                              },
+                              "unified_job_template": {
+                                   "organization": {
+                                        "name": "Default",
+                                        "type": "organization"
+                                   },
+                                   "name": "Create CIFS Share",
+                                   "type": "job_template"
+                              },
+                              "related": {
+                                   "credentials": [],
+                                   "success_nodes": [],
+                                   "failure_nodes": [],
+                                   "always_nodes": []
+                              },
+                              "natural_key": {
+                                   "workflow_job_template": {
+                                        "organization": {
+                                             "name": "Default",
+                                             "type": "organization"
+                                        },
+                                        "name": "Provision NAS",
+                                        "type": "workflow_job_template"
+                                   },
+                                   "identifier": "e49fe296-1dd8-474a-b9f0-acac2635ed3f",
+                                   "type": "workflow_job_template_node"
+                              }
+                         }
+                    ],
+                    "labels": [],
+                    "notification_templates_started": [],
+                    "notification_templates_success": [],
+                    "notification_templates_error": [],
+                    "notification_templates_approvals": [],
+                    "survey_spec": {
+                         "name": "",
+                         "spec": [
+                              {
+                                   "max": 1024,
+                                   "min": 0,
+                                   "type": "text",
+                                   "choices": "",
+                                   "default": "",
+                                   "required": true,
+                                   "variable": "volname",
+                                   "new_question": true,
+                                   "question_name": "Volume Name",
+                                   "question_description": ""
+                              },
+                              {
+                                   "max": 1024,
+                                   "min": 0,
+                                   "type": "integer",
+                                   "choices": "",
+                                   "default": "",
+                                   "required": true,
+                                   "variable": "size",
+                                   "new_question": true,
+                                   "question_name": "Volume Size",
+                                   "question_description": ""
+                              },
+                              {
+                                   "max": 1024,
+                                   "min": 0,
+                                   "type": "text",
+                                   "choices": "",
+                                   "default": "",
+                                   "required": false,
+                                   "variable": "client_match",
+                                   "new_question": false,
+                                   "question_name": "Client Match",
+                                   "question_description": "Required for NFS"
+                              },
+                              {
+                                   "max": 1024,
+                                   "min": 0,
+                                   "type": "multiplechoice",
+                                   "choices": [
+                                        "NFS",
+                                        "CIFS"
+                                   ],
+                                   "default": "NFS",
+                                   "required": true,
+                                   "variable": "protocol",
+                                   "new_question": true,
+                                   "question_name": "Protocol",
+                                   "question_description": ""
+                              }
+                         ],
+                         "description": ""
+                    }
+               },
+               "natural_key": {
+                    "organization": {
+                         "name": "Default",
+                         "type": "organization"
+                    },
+                    "name": "Provision NAS",
+                    "type": "workflow_job_template"
+               }
+          }
+     ],
+     "execution_environments": [
+          {
+               "name": "NetApp EE",
+               "description": "",
+               "organization": null,
+               "image": "schmots1/na_ansible_ee",
+               "credential": null,
+               "pull": "",
+               "natural_key": {
+                    "name": "NetApp EE",
+                    "type": "execution_environment"
+               }
+          },
+          {
+               "name": "AWX EE (latest)",
+               "description": "",
+               "organization": null,
+               "image": "quay.io/ansible/awx-ee:latest",
+               "credential": null,
+               "pull": "",
+               "natural_key": {
+                    "name": "AWX EE (latest)",
+                    "type": "execution_environment"
+               }
+          }
+     ],
+     "applications": [],
+     "schedules": [
+          {
+               "rrule": "DTSTART:20231012T015216Z RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU",
+               "name": "Cleanup Job Schedule",
+               "description": "Automatically Generated Schedule",
+               "extra_data": {
+                    "days": "120"
+               },
+               "inventory": null,
+               "scm_branch": null,
+               "job_type": null,
+               "job_tags": null,
+               "skip_tags": null,
+               "limit": null,
+               "diff_mode": null,
+               "verbosity": null,
+               "execution_environment": null,
+               "forks": null,
+               "job_slice_count": null,
+               "timeout": null,
+               "enabled": true,
+               "unified_job_template": {
+                    "name": "Cleanup Job Details",
+                    "type": "system_job_template"
+               },
+               "related": {
+                    "credentials": []
+               },
+               "natural_key": {
+                    "unified_job_template": {
+                         "name": "Cleanup Job Details",
+                         "type": "system_job_template"
+                    },
+                    "name": "Cleanup Job Schedule",
+                    "type": "schedule"
+               }
+          },
+          {
+               "rrule": "DTSTART:20231012T015216Z RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=TU",
+               "name": "Cleanup Activity Schedule",
+               "description": "Automatically Generated Schedule",
+               "extra_data": {
+                    "days": "355"
+               },
+               "inventory": null,
+               "scm_branch": null,
+               "job_type": null,
+               "job_tags": null,
+               "skip_tags": null,
+               "limit": null,
+               "diff_mode": null,
+               "verbosity": null,
+               "execution_environment": null,
+               "forks": null,
+               "job_slice_count": null,
+               "timeout": null,
+               "enabled": true,
+               "unified_job_template": {
+                    "name": "Cleanup Activity Stream",
+                    "type": "system_job_template"
+               },
+               "related": {
+                    "credentials": []
+               },
+               "natural_key": {
+                    "unified_job_template": {
+                         "name": "Cleanup Activity Stream",
+                         "type": "system_job_template"
+                    },
+                    "name": "Cleanup Activity Schedule",
+                    "type": "schedule"
+               }
+          },
+          {
+               "rrule": "DTSTART:20231012T015339Z RRULE:FREQ=WEEKLY;INTERVAL=1",
+               "name": "Cleanup Expired Sessions",
+               "description": "Cleans out expired browser sessions",
+               "extra_data": {},
+               "inventory": null,
+               "scm_branch": null,
+               "job_type": null,
+               "job_tags": null,
+               "skip_tags": null,
+               "limit": null,
+               "diff_mode": null,
+               "verbosity": null,
+               "execution_environment": null,
+               "forks": null,
+               "job_slice_count": null,
+               "timeout": null,
+               "enabled": true,
+               "unified_job_template": {
+                    "name": "Cleanup Expired Sessions",
+                    "type": "system_job_template"
+               },
+               "related": {
+                    "credentials": []
+               },
+               "natural_key": {
+                    "unified_job_template": {
+                         "name": "Cleanup Expired Sessions",
+                         "type": "system_job_template"
+                    },
+                    "name": "Cleanup Expired Sessions",
+                    "type": "schedule"
+               }
+          },
+          {
+               "rrule": "DTSTART:20231012T015340Z RRULE:FREQ=WEEKLY;INTERVAL=1",
+               "name": "Cleanup Expired OAuth 2 Tokens",
+               "description": "Removes expired OAuth 2 access and refresh tokens",
+               "extra_data": {},
+               "inventory": null,
+               "scm_branch": null,
+               "job_type": null,
+               "job_tags": null,
+               "skip_tags": null,
+               "limit": null,
+               "diff_mode": null,
+               "verbosity": null,
+               "execution_environment": null,
+               "forks": null,
+               "job_slice_count": null,
+               "timeout": null,
+               "enabled": true,
+               "unified_job_template": {
+                    "name": "Cleanup Expired OAuth 2 Tokens",
+                    "type": "system_job_template"
+               },
+               "related": {
+                    "credentials": []
+               },
+               "natural_key": {
+                    "unified_job_template": {
+                         "name": "Cleanup Expired OAuth 2 Tokens",
+                         "type": "system_job_template"
+                    },
+                    "name": "Cleanup Expired OAuth 2 Tokens",
+                    "type": "schedule"
+               }
+          }
+     ]
+}

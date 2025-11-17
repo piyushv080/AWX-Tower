@@ -1,0 +1,5 @@
+NAME                              DATA   AGE
+kube-root-ca.crt                  1      2y37d
+awx-operator-awx-manager-config   1      2y37d
+awx-awx-configmap                 6      2y37d
+awx-operator                      0      2y37d
