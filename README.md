@@ -1,4 +1,6 @@
 AWX Deployment on Rancher K3s (Without Docker Licensing)
+
+
 ✅ Overview
 This guide explains how to deploy AWX Tower on a K3s Kubernetes cluster using the AWX Operator, and build custom Ansible Execution Environments without Docker licensing issues.
 
@@ -87,6 +89,7 @@ kubectl get secrets
 
 
 🔗 Reference
+https://blog.kurokobo.com/archives/category/it/ansible
 https://www.server-world.info/en/note?os=CentOS_Stream_9&p=ansible&f=9
 
 
